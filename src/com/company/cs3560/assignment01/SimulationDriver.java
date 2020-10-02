@@ -7,7 +7,6 @@ import java.util.UUID;
 public class SimulationDriver {
 
     public static void main(String[] args) {
-	// write your code here
         //making a student object and putting them into a list
 
         int questionType;
@@ -37,8 +36,7 @@ public class SimulationDriver {
 
             }
 
-            System.out.println("Student new ID: "+ studentArray[i].getStudentID());
-            System.out.println("Answer chosen: "+ studentArray[i].getAnswer());
+            System.out.println("Student new ID: "+ studentArray[i].getStudentID()+" Answer chosen: "+ studentArray[i].getAnswer());
         }
 
         //generating question and retrieving questions
