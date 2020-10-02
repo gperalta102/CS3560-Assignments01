@@ -5,11 +5,13 @@ import java.util.Random;
 class Question {
     private String question;
     private String answer;
+    private int type;
 
 
-    public Question(String q, String a){
+    public Question(String q, String a, int t){
         question = q;
         answer = a;
+        type =t;
     }
 
     public String getQuestion() {
@@ -19,6 +21,10 @@ class Question {
     public String getAnswer() {
         return answer;
     }
+    public int getType(){
+        return type;
+    }
+
 }
 
 public class QuestionGenerator {
@@ -28,8 +34,8 @@ public class QuestionGenerator {
     private String [] twoChoiceAns = {"1. Right", "2. Wrong"};
     private String[] multiChoiceAns = {"A", "B", "C","D"};
     private Random rand = new Random();
-    private Question mQuestion = new Question(randQuestions[rand.nextInt(4)],multiChoiceAns[rand.nextInt(4)]);
-    private Question tQuestion = new Question(randQuestions[rand.nextInt(4)], twoChoiceAns[rand.nextInt(2)]);
+    private Question mQuestion = new Question(randQuestions[rand.nextInt(4)],multiChoiceAns[rand.nextInt(4)], 0);
+    private Question tQuestion = new Question(randQuestions[rand.nextInt(4)], twoChoiceAns[rand.nextInt(2)], 1);
 
     public QuestionGenerator(int qType) {
         questionType = qType;
@@ -39,9 +45,7 @@ public class QuestionGenerator {
         // 1 -> Right or Wrong
 
     }
-    /*prviate int  getQtype(){
-        return questionType;
-    }*/
+
     public Question getQuestion(){
         if (questionType == 0){
             return  mQuestion;

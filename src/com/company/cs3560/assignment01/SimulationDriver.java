@@ -29,12 +29,11 @@ public class SimulationDriver {
         //fill student objects
         for (int i = 0; i<studentArray.length; i++) {
             String randUUID = UUID.randomUUID().toString();
-            System.out.println("random ID "+ randUUID);
 
             if (questionType == 0){
                 studentArray[i] = new Student(randUUID,mutipleChoice[rand.nextInt(4)] );
             }else{
-                studentArray[i] = new Student(randUUID,twoChoice[rand.nextInt(1)] );
+                studentArray[i] = new Student(randUUID,twoChoice[rand.nextInt(2)] );
 
             }
 
@@ -46,6 +45,9 @@ public class SimulationDriver {
         QuestionGenerator qg = new QuestionGenerator(questionType);
         Question generatedQuestion = qg.getQuestion();
         System.out.println("Q: "+ generatedQuestion.getQuestion()+" A: "+generatedQuestion.getAnswer());
+
+        VotingService votingService = new VotingService(studentArray, generatedQuestion);
+        votingService.runVotingService();
 
 
 
