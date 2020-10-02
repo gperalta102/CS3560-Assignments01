@@ -5,4 +5,8 @@ public class VotingService {
     private int correctCount;
     private int wrongCount;
 
+    public VotingService(int qType, int cCount, int wCount, Student s[]){
+
+    }
+
 }
