@@ -2,6 +2,25 @@ package com.company.cs3560.assignment01;
 
 import java.util.Random;
 
+class Question {
+    private String question;
+    private String answer;
+
+
+    public Question(String q, String a){
+        question = q;
+        answer = a;
+    }
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public String getAnswer() {
+        return answer;
+    }
+}
+
 public class QuestionGenerator {
     private int questionType;
     private String Answer;
@@ -9,6 +28,8 @@ public class QuestionGenerator {
     private String [] twoChoiceAns = {"1. Right", "2. Wrong"};
     private String[] multiChoiceAns = {"A", "B", "C","D"};
     private Random rand = new Random();
+    private Question mQuestion = new Question(randQuestions[rand.nextInt(4)],multiChoiceAns[rand.nextInt(4)]);
+    private Question tQuestion = new Question(randQuestions[rand.nextInt(4)], twoChoiceAns[rand.nextInt(2)]);
 
     public QuestionGenerator(int qType) {
         questionType = qType;
@@ -17,31 +38,18 @@ public class QuestionGenerator {
         // 0 -> multiple choice
         // 1 -> Right or Wrong
 
-        if(qType == 0){
-            Question Question = new Question(randQuestions[rand.nextInt(4)],multiChoiceAns[rand.nextInt(4)]);
-        }
-        else{
-            Question Question = new Question(randQuestions[rand.nextInt(4)], twoChoiceAns[rand.nextInt(2)]);
-
-        }
     }
-
-
-
-    public int questionTypeGetter(){
+    /*prviate int  getQtype(){
         return questionType;
-    }
-
-    private class Question {
-        private String question;
-        private String answer;
-
-
-        public Question(String q, String a){
-            question = q;
-            answer = a;
+    }*/
+    public Question getQuestion(){
+        if (questionType == 0){
+            return  mQuestion;
+        }else{
+            return tQuestion;
         }
-
-
     }
+
+
+
 }

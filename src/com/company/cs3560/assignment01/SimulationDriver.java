@@ -42,6 +42,10 @@ public class SimulationDriver {
             System.out.println("Answer chosen: "+ studentArray[i].getAnswer());
         }
 
+        //generating question and retrieving questions
+        QuestionGenerator qg = new QuestionGenerator(questionType);
+        Question generatedQuestion = qg.getQuestion();
+        System.out.println("Q: "+ generatedQuestion.getQuestion()+" A: "+generatedQuestion.getAnswer());
 
 
 
